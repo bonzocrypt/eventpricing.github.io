@@ -3,67 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BNZO Artist Onboarding</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>BNZO Coin - Empowering Musicians and Fans</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #121212;
+            color: #fff;
+        }
+        .hero {
+            padding: 100px 0;
+            background-image: url('hero-image.jpg'); /* ADD YOUR HERO IMAGE */
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            background-color: rgba(0,0,0,0.5);
+            background-blend-mode: overlay;
+        }
+        .section {
+            padding: 60px 0;
+        }
+        .footer {
+            background-color: #111;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .token-card {
+            background: #1f1f1f;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white">
-    <div class="max-w-4xl mx-auto py-12 px-6">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-yellow-400">🎸 Welcome to BNZO – The Future of Rock & Metal Payments! 🤘</h1>
-            <p class="text-lg mt-4">Earn More. Connect More. Keep More.</p>
-        </header>
+<body>
 
-        <section class="mb-12 text-center">
-            <h2 class="text-3xl font-semibold text-red-500">🔥 Why Rock Bands Love BNZO</h2>
-            <ul class="mt-6 space-y-4">
-                <li>✅ <strong>More Money in Your Pocket</strong> – Keep 100% of your earnings.</li>
-                <li>🎟️ <strong>Sell Concert Tickets & Merch Directly</strong> – Accept BNZO for VIP tickets & fan experiences.</li>
-                <li>💎 <strong>Exclusive Fan Club Perks</strong> – Offer early access to albums, behind-the-scenes content.</li>
-                <li>🎵 <strong>Support the Rock Community</strong> – 2% of BNZO transactions go to musicians.</li>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">BNZO Coin 🎸</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tokenomics">Tokenomics</a></li>
+                <li class="nav-item"><a class="nav-link" href="#roadmap">Roadmap</a></li>
+                <li class="nav-item"><a class="nav-link" href="#whitepaper">Whitepaper</a></li>
+                <li class="nav-item"><a class="nav-link" href="#community">Community</a></li>
             </ul>
-        </section>
-
-        <section class="bg-gray-800 p-6 rounded-lg text-center mb-12">
-            <h2 class="text-3xl font-bold text-yellow-400">🎤 How to Get Started</h2>
-            <ol class="mt-4 text-lg space-y-2">
-                <li>1️⃣ <strong>Sign Up</strong> – Enter your band’s details below.</li>
-                <li>2️⃣ <strong>Get Your BNZO Wallet</strong> – We’ll guide you step-by-step.</li>
-                <li>3️⃣ <strong>Start Accepting BNZO</strong> – Sell merch, tickets & fan club access instantly.</li>
-                <li>4️⃣ <strong>Promote & Earn</strong> – Get featured and grow your fan base!</li>
-            </ol>
-            <p class="mt-4 text-lg font-semibold text-green-400">🎁 BONUS: First 100 bands get 10,000 BNZO FREE!</p>
-        </section>
-
-        <section class="bg-gray-700 p-6 rounded-lg text-center mb-12">
-            <h2 class="text-3xl font-bold text-red-500">🎶 Featured Bands Already Using BNZO</h2>
-            <p class="mt-4">🔥 <strong>Band Name 1</strong>: "BNZO made our last merch drop sell out in hours!"</p>
-            <p>🔥 <strong>Band Name 2</strong>: "We used BNZO for ticket presales, and our fans LOVED it!"</p>
-            <p>🔥 <strong>Band Name 3</strong>: "Crypto is the future, and BNZO is perfect for artists."</p>
-        </section>
-
-        <section class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-yellow-400">📩 Sign Up Now</h2>
-            <form class="mt-6 max-w-lg mx-auto bg-gray-800 p-6 rounded-lg">
-                <label class="block text-left text-lg mb-2">Band Name:</label>
-                <input type="text" class="w-full p-3 rounded bg-gray-900 text-white border border-gray-600" placeholder="Your Band Name">
-                
-                <label class="block text-left text-lg mt-4 mb-2">Email:</label>
-                <input type="email" class="w-full p-3 rounded bg-gray-900 text-white border border-gray-600" placeholder="Your Email">
-                
-                <label class="block text-left text-lg mt-4 mb-2">Website / Social Media:</label>
-                <input type="text" class="w-full p-3 rounded bg-gray-900 text-white border border-gray-600" placeholder="Website or Social Media Link">
-                
-                <button class="mt-6 w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg">Sign Up</button>
-            </form>
-        </section>
-
-        <footer class="text-center text-lg mt-12">
-            <p>💬 Have questions? We’re here to help!</p>
-            <p>📩 Email: <a href="mailto:support@bnzocoin.com" class="text-blue-400">support@bnzocoin.com</a></p>
-            <p>💬 Join our Discord: <a href="#" class="text-blue-400">BNZO Rock Community</a></p>
-            <p>🐦 Follow us on Twitter: <a href="#" class="text-blue-400">@BNZORock</a></p>
-            <p class="mt-6 text-sm">🔥 BNZO is more than a payment method – it’s a revolution for musicians. Join today! 🤘</p>
-        </footer>
+        </div>
     </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero">
+    <div class="container">
+        <h1 class="display-3">Empowering Musicians and Fans Through Crypto Innovation</h1>
+        <p class="lead">BNZO Coin connects artists and fans with decentralized finance.</p>
+        <a href="#" class="btn btn-primary btn-lg">Buy BNZO</a>
+        <a href="#community" class="btn btn-outline-light btn-lg">Join Community</a>
+        <a href="bands.html" class="btn btn-success btn-lg">🎤 Band Sign-Up</a> <!-- New button added -->
+    </div>
+</header>
+
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <h2>About BNZO Coin</h2>
+        <p>BNZO Coin is designed to revolutionize how musicians are compensated and how fans interact with their favorite artists. BNZO enables direct, transparent, and efficient financial support through blockchain technology.</p>
+    </div>
+</section>
+
+<!-- Tokenomics Section -->
+<section id="tokenomics" class="section bg-dark">
+    <div class="container">
+        <h2>Tokenomics</h2>
+        <div class="row">
+            <div class="col-md-6 token-card">
+                <h4>Total Supply: 8,675,309,000 BNZO</h4>
+                <ul>
+                    <li>Liquidity Pool: 60%</li>
+                    <li>Treasury: 20%</li>
+                    <li>Marketing & Community: 10%</li>
+                    <li>Team Allocation: 10%</li>
+                </ul>
+            </div>
+            <div class="col-md-6 token-card">
+                <h4>5% Transaction Tax</h4>
+                <ul>
+                    <li>🎤 Musicians: 2%</li>
+                    <li>💰 Staking Incentives: 1%</li>
+                    <li>🔒 Treasury Wallet: 1%</li>
+                    <li>🚀 Marketing & Development: 1%</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Roadmap Section -->
+<section id="roadmap" class="section">
+    <div class="container">
+        <h2>Roadmap</h2>
+        <ul>
+            <li><strong>Phase 1:</strong> Development, Smart Contract, Audits, Initial Liquidity</li>
+            <li><strong>Phase 2:</strong> DEX Listings, Initial Marketing</li>
+            <li><strong>Phase 3:</strong> Streaming Service Integrations, Concert Ticketing Platforms</li>
+            <li><strong>Future:</strong> NFT Partnerships, Staking Rewards, Expanded Fan Engagement</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Whitepaper Section -->
+<section id="whitepaper" class="section bg-dark">
+    <div class="container">
+        <h2>Whitepaper</h2>
+        <p>Learn more about our vision, token distribution, and future roadmap in our detailed whitepaper.</p>
+        <a href="#" class="btn btn-light">Download Whitepaper (PDF)</a> <!-- LINK YOUR PDF HERE -->
+    </div>
+</section>
+
+<!-- Community Section -->
+<section id="community" class="section">
+    <div class="container">
+        <h2>Join Our Community</h2>
+        <p>Become part of our growing family. Stay updated and participate actively:</p>
+        <a href="#" class="btn btn-primary">Discord</a>
+        <a href="#" class="btn btn-info">Telegram</a>
+        <a href="#" class="btn btn-dark">X (Twitter)</a>
+        <a href="#" class="btn btn-warning">Reddit</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>BNZO Coin &copy; 2025. All Rights Reserved.</p>
+        <small><a href="#" class="text-secondary">Privacy Policy</a> | <a href="#" class="text-secondary">Terms of Use</a></small>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.querySelectorAll('a.nav-link').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const href = link.getAttribute('href');
+            document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
 </body>
 </html>

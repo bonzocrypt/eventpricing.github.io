@@ -1,166 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Get custom event pricing for any event. From weddings to corporate parties, EventPricing.com helps you plan and price your event hassle-free." />
-  <meta name="keywords" content="event planning, event pricing, party planning, custom event quotes, wedding pricing, corporate events, birthday party planner, festival setup, event cost estimator, professional event services" />
-  <meta name="author" content="EventPricing.com" />
-  <title>EventPricing.com | Custom Event Planning & Pricing</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      background: #f4f9fd;
-      color: #333;
-    }
+.event-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+}
 
-    header {
-      background: #ffffff;
-      text-align: center;
-      padding: 2rem 1rem 1rem;
-    }
+.event-circle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+}
 
-    header img {
-      max-width: 300px;
-      height: auto;
-    }
+.event-card {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 140px;
+  height: 160px;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
 
-    main {
-      padding: 2rem 1rem;
-      max-width: 1000px;
-      margin: 0 auto;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
+.event-card img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.5rem;
+}
 
-    h2 {
-      color: #1e88e5;
-      text-align: center;
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-    }
+.event-card:hover {
+  transform: translateY(-10px);
+  background: #e1f5fe;
+}
 
-    .events-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-      padding: 1rem;
-    }
+.event-card p {
+  font-size: 0.9rem;
+  color: #333;
+}
 
-    .event-item {
-      background: #f0f8ff;
-      border-radius: 10px;
-      padding: 1rem;
-      transition: transform 0.3s ease, background 0.3s ease;
-      cursor: default;
-    }
-
-    .event-item:hover {
-      transform: translateY(-5px);
-      background: #e1f5fe;
-    }
-
-    .event-item img {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 0.5rem;
-    }
-
-    .form-container {
-      margin-top: 2rem;
-      padding: 1rem;
-      border: 2px dashed #1e88e5;
-      text-align: center;
-    }
-
-    .form-container a {
-      display: inline-block;
-      margin-top: 1rem;
-      background: #1e88e5;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-
-    .form-container a:hover {
-      background: #1565c0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <img src="images/event-pricing-header.png" alt="Event Pricing Logo" />
-    <p>Tell us your idea. We’ll price it out for you. Any event, any size.</p>
-  </header>
-
-  <main>
-    <h2>Popular Events We Handle</h2>
-    <div class="events-grid">
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/wedding.png" alt="Wedding" />
-        <div>Weddings</div>
-      </div>
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/birthday-cake.png" alt="Birthday" />
-        <div>Birthdays</div>
-      </div>
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/briefcase.png" alt="Corporate" />
-        <div>Corporate Events</div>
-      </div>
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/baby.png" alt="Baby Shower" />
-        <div>Baby Showers</div>
-      </div>
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/graduation-cap.png" alt="Graduation" />
-        <div>Graduations</div>
-      </div>
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/christmas-tree.png" alt="Holiday" />
-        <div>Holiday Parties</div>
-      </div>
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/ferris-wheel.png" alt="Festival" />
-        <div>Festivals</div>
-      </div>
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/guitar.png" alt="Concert" />
-        <div>Concerts</div>
-      </div>
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/red-heart.png" alt="Charity" />
-        <div>Charity Galas</div>
-      </div>
-      <div class="event-item">
-        <img src="https://img.icons8.com/emoji/48/trophy.png" alt="Retirement" />
-        <div>Retirements</div>
-      </div>
-    </div>
-
-    <div class="form-container">
-      <h2>Request Your Event Quote</h2>
-      <p>Click the button below to fill out our quick request form.</p>
-      <!-- Replace this link with your actual Google Form link -->
-      <a href="https://your-google-form-link.com" target="_blank">Get Your Custom Event Quote</a>
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2025 EventPricing.com — Making your event unforgettable.
-  </footer>
-
-</body>
-</html>
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}

@@ -9,47 +9,72 @@
   <title>EventPricing.com | Custom Event Planning & Pricing</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      background: #f7f7f7;
+      background: #f4f9fd;
       color: #333;
     }
+
     header {
-      background: #1e88e5;
-      color: white;
-      padding: 2rem 1rem;
+      background: #ffffff;
       text-align: center;
+      padding: 2rem 1rem 1rem;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+
+    header img {
+      max-width: 300px;
+      height: auto;
     }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
+
     main {
       padding: 2rem 1rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       background: white;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
+
     h2 {
       color: #1e88e5;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
     }
-    ul {
-      padding-left: 1.5rem;
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+      padding: 1rem;
     }
-    li {
+
+    .event-item {
+      background: #f0f8ff;
+      border-radius: 10px;
+      padding: 1rem;
+      transition: transform 0.3s ease, background 0.3s ease;
+      cursor: default;
+    }
+
+    .event-item:hover {
+      transform: translateY(-5px);
+      background: #e1f5fe;
+    }
+
+    .event-item img {
+      width: 50px;
+      height: 50px;
       margin-bottom: 0.5rem;
     }
+
     .form-container {
       margin-top: 2rem;
       padding: 1rem;
       border: 2px dashed #1e88e5;
       text-align: center;
     }
+
     .form-container a {
       display: inline-block;
       margin-top: 1rem;
@@ -60,9 +85,11 @@
       border-radius: 5px;
       font-weight: bold;
     }
+
     .form-container a:hover {
       background: #1565c0;
     }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -72,26 +99,56 @@
   </style>
 </head>
 <body>
+
   <header>
-    <h1>EventPricing.com</h1>
+    <img src="images/event-pricing-header.png" alt="Event Pricing Logo" />
     <p>Tell us your idea. We’ll price it out for you. Any event, any size.</p>
   </header>
 
   <main>
-    <h2>Popular Events We Handle:</h2>
-    <ul>
-      <li>Weddings & Receptions</li>
-      <li>Birthday Parties</li>
-      <li>Corporate Events</li>
-      <li>Baby Showers</li>
-      <li>Graduation Parties</li>
-      <li>Holiday Gatherings</li>
-      <li>Festivals & Fairs</li>
-      <li>Concerts & Live Shows</li>
-      <li>Charity Galas</li>
-      <li>Retirement Celebrations</li>
-    </ul>
-    <p><strong>Don't see your event?</strong> No problem — we can accommodate any kind of event. Just let us know what you’re thinking, and we’ll get back to you with pricing options.</p>
+    <h2>Popular Events We Handle</h2>
+    <div class="events-grid">
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/wedding.png" alt="Wedding" />
+        <div>Weddings</div>
+      </div>
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/birthday-cake.png" alt="Birthday" />
+        <div>Birthdays</div>
+      </div>
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/briefcase.png" alt="Corporate" />
+        <div>Corporate Events</div>
+      </div>
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/baby.png" alt="Baby Shower" />
+        <div>Baby Showers</div>
+      </div>
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/graduation-cap.png" alt="Graduation" />
+        <div>Graduations</div>
+      </div>
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/christmas-tree.png" alt="Holiday" />
+        <div>Holiday Parties</div>
+      </div>
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/ferris-wheel.png" alt="Festival" />
+        <div>Festivals</div>
+      </div>
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/guitar.png" alt="Concert" />
+        <div>Concerts</div>
+      </div>
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/red-heart.png" alt="Charity" />
+        <div>Charity Galas</div>
+      </div>
+      <div class="event-item">
+        <img src="https://img.icons8.com/emoji/48/trophy.png" alt="Retirement" />
+        <div>Retirements</div>
+      </div>
+    </div>
 
     <div class="form-container">
       <h2>Request Your Event Quote</h2>
@@ -104,5 +161,6 @@
   <footer>
     &copy; 2025 EventPricing.com — Making your event unforgettable.
   </footer>
+
 </body>
 </html>

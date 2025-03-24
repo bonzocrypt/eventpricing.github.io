@@ -1,51 +1,196 @@
-.event-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 2rem auto;
-  flex-wrap: wrap;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get custom event pricing for any event. From weddings to corporate parties, EventPricing.com helps you plan and price your event hassle-free." />
+  <meta name="keywords" content="event planning, event pricing, party planning, custom event quotes, wedding pricing, corporate events, birthday party planner, festival setup, event cost estimator, professional event services" />
+  <meta name="author" content="EventPricing.com" />
+  <title>EventPricing.com | Custom Event Planning & Pricing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: url('images/elegant-background.png') repeat;
+      background-size: 300px auto;
+      color: #333;
+    }
 
-.event-circle {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  max-width: 1000px;
-}
+    header {
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
 
-.event-card {
-  background: #ffffff;
-  border-radius: 20px;
-  width: 140px;
-  height: 160px;
-  text-align: center;
-  padding: 1rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  animation: float 3s ease-in-out infinite;
-}
+    header img {
+      max-width: 320px;
+      height: auto;
+    }
 
-.event-card img {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 0.5rem;
-}
+    main {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+    }
 
-.event-card:hover {
-  transform: translateY(-10px);
-  background: #e1f5fe;
-}
+    h2 {
+      color: #1e88e5;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
 
-.event-card p {
-  font-size: 0.9rem;
-  color: #333;
-}
+    .event-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 2rem auto;
+      flex-wrap: wrap;
+    }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
+    .event-circle {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 1000px;
+    }
+
+    .event-card {
+      background: #ffffff;
+      border-radius: 20px;
+      width: 140px;
+      height: 160px;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      animation: floatCard 3s ease-in-out infinite;
+    }
+
+    .event-card img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-card:hover {
+      transform: translateY(-10px);
+      background: #e1f5fe;
+    }
+
+    .event-card p {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    @keyframes floatCard {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .form-container {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px dashed #1e88e5;
+      text-align: center;
+    }
+
+    .form-container a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #1e88e5;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .form-container a:hover {
+      background: #1565c0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+      background: rgba(255, 255, 255, 0.9);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="images/event-pricing-header.png" alt="Event Pricing Logo" />
+    <p>Tell us your idea. We’ll price it out for you. Any event, any size.</p>
+  </header>
+
+  <main>
+    <h2>Popular Events We Handle</h2>
+    <div class="event-wrapper">
+      <div class="event-circle">
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/wedding-dress.png" alt="Weddings" />
+          <p>Weddings</p>
+        </div>
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/birthday-cake.png" alt="Birthdays" />
+          <p>Birthdays</p>
+        </div>
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/conference-call.png" alt="Corporate Events" />
+          <p>Corporate Events</p>
+        </div>
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/baby-bottle.png" alt="Baby Showers" />
+          <p>Baby Showers</p>
+        </div>
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/graduation-cap.png" alt="Graduations" />
+          <p>Graduations</p>
+        </div>
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/christmas-star.png" alt="Holiday Parties" />
+          <p>Holiday Parties</p>
+        </div>
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/festival.png" alt="Festivals" />
+          <p>Festivals</p>
+        </div>
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/guitar.png" alt="Concerts" />
+          <p>Concerts</p>
+        </div>
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/charity.png" alt="Charity Galas" />
+          <p>Charity Galas</p>
+        </div>
+        <div class="event-card">
+          <img src="https://img.icons8.com/color/96/award.png" alt="Retirements" />
+          <p>Retirements</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h2>Request Your Event Quote</h2>
+      <p>Click the button below to fill out our quick request form.</p>
+      <!-- Replace this link with your actual Google Form -->
+      <a href="https://your-google-form-link.com" target="_blank">Get Your Custom Event Quote</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 EventPricing.com — Making your event unforgettable.
+  </footer>
+
+</body>
+</html>

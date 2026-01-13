@@ -1,0 +1,13 @@
+.content h2 {
+  margin: 1.75rem 0 0.75rem 0;
+  font-size: 1.25rem;
+}
+
+.content ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+}
+
+.content li {
+  margin: 0.4rem 0;
+}

@@ -32,7 +32,7 @@ export type FirestoreEventDoc = {
 
   // timing and location
   startISO: string;
-  endISO?: string;
+  endISO?: string | null;
   timezone?: string;
 
   venueName: string;
@@ -81,7 +81,7 @@ export type FirestoreEventSourceDoc = {
 
 export function toFirestoreEventDoc(e: NormalizedEvent): FirestoreEventDoc {
   const startISO = e.dateTime.startISO;
-  const endISO = e.dateTime.endISO;
+  const endISO = "endISO" in e.dateTime ? e.dateTime.endISO : null;
 
   return {
     id: e.id,

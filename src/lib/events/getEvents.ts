@@ -2,12 +2,7 @@
 
 import type { NormalizedEvent } from "./eventTypes";
 import { inTimeBucket, type TimeBucketSlug } from "./timeBuckets";
-import { ingestAllSources } from "../ingest/ingestEvents";
-
-type IngestResponse = {
-  summary?: any;
-  sample?: any[];
-};
+import { runIngest } from "../ingest/runIngest";
 
 function sortSoonestFirst(events: NormalizedEvent[]): NormalizedEvent[] {
   const copy = [...events];
@@ -33,66 +28,65 @@ async function toPlainObject(raw: unknown): Promise<any> {
   return raw;
 }
 
-function slugifyTitle(title: string): string {
-  return title
-    .trim()
-    .toLowerCase()
-    .replace(/&/g, "and")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
+function isNormalizedEventArray(x: any): x is NormalizedEvent[] {
+  if (!Array.isArray(x)) return false;
+  if (x.length === 0) return true;
+
+  const e = x[0];
+  return (
+    !!e &&
+    typeof e === "object" &&
+    typeof e.id === "string" &&
+    typeof e.slug === "string" &&
+    typeof e.title === "string" &&
+    !!e.dateTime &&
+    typeof e.dateTime.startISO === "string" &&
+    !!e.place &&
+    typeof e.place.city === "string"
+  );
 }
 
-function toNormalizedFromSample(item: any): NormalizedEvent {
-  const id = String(item?.id || "");
-  const title = String(item?.title || "Event");
-  const startISO = String(item?.startISO || new Date().toISOString());
+function extractEventsFromUnknown(x: any): NormalizedEvent[] {
+  if (isNormalizedEventArray(x)) return x;
 
-  const city = String(item?.city || "");
-  const venue = String(item?.venue || "");
+  if (!x || typeof x !== "object") return [];
 
-  const categorySlugs: string[] = Array.isArray(item?.categorySlugs) ? item.categorySlugs : [];
+  // Common shapes we have seen during ingest iterations
+  const candidates = [
+    (x as any).events,
+    (x as any).data,
+    (x as any).items,
+    (x as any).result,
+    (x as any).sample,
+    (x as any).payload?.events,
+    (x as any).payload?.data,
+  ];
 
-  const slugBase = slugifyTitle(title) || "event";
-  const suffix = id ? id.slice(-6) : "000000";
-  const slug = `${slugBase}-${suffix}`;
+  for (const c of candidates) {
+    if (isNormalizedEventArray(c)) return c;
+  }
 
-  return {
-    id: id || `evt_${suffix}`,
-    slug,
-    title,
-    dateTime: { startISO },
-    place: {
-      name: venue,
-      city,
-      region: "",
-      country: "US",
-    },
-    categories: categorySlugs.map((s) => ({
-      slug: String(s),
-      label: String(s),
-    })),
-    ticketsUrl: item?.ticketsUrl ? String(item.ticketsUrl) : undefined,
-    images: [],
-    price: undefined,
-    sources: Array.isArray(item?.sources) ? item.sources : [],
-  } as unknown as NormalizedEvent;
+  // Sometimes the ingest returns { sample: [...] } where sample is already normalized
+  for (const c of candidates) {
+    if (Array.isArray(c) && c.length > 0 && isNormalizedEventArray(c)) return c;
+  }
+
+  return [];
 }
 
-async function ingestSample(args: {
+async function ingestNormalized(args: {
   timeSlug?: string;
   categorySlug?: string;
   citySlug?: string;
 }): Promise<NormalizedEvent[]> {
-  const raw = await ingestAllSources({
+  const raw = await runIngest({
     timeSlug: args.timeSlug,
     categorySlug: args.categorySlug,
     citySlug: args.citySlug,
   });
 
-  const plain = (await toPlainObject(raw)) as IngestResponse;
-  const sample = Array.isArray(plain?.sample) ? plain.sample : [];
-  return sample.map(toNormalizedFromSample);
+  const plain = await toPlainObject(raw);
+  return extractEventsFromUnknown(plain);
 }
 
 export async function getEventsForTimeSlug(timeSlug: string): Promise<NormalizedEvent[]> {
@@ -100,7 +94,7 @@ export async function getEventsForTimeSlug(timeSlug: string): Promise<Normalized
 
   const bucket = timeSlug as TimeBucketSlug;
 
-  const events = await ingestSample({ timeSlug });
+  const events = await ingestNormalized({ timeSlug });
   const filtered = events.filter((e) => inTimeBucket(e.dateTime.startISO, bucket));
 
   return sortSoonestFirst(filtered);
@@ -109,7 +103,7 @@ export async function getEventsForTimeSlug(timeSlug: string): Promise<Normalized
 export async function getEventsForCategorySlug(categorySlug: string): Promise<NormalizedEvent[]> {
   if (!categorySlug) return [];
 
-  const events = await ingestSample({ categorySlug });
+  const events = await ingestNormalized({ categorySlug });
   const filtered = events.filter((e) => e.categories?.some((c) => c.slug === categorySlug));
 
   return sortSoonestFirst(filtered);
@@ -118,7 +112,7 @@ export async function getEventsForCategorySlug(categorySlug: string): Promise<No
 export async function getEventsForCitySlug(citySlug: string): Promise<NormalizedEvent[]> {
   if (!citySlug) return [];
 
-  const events = await ingestSample({ citySlug });
+  const events = await ingestNormalized({ citySlug });
 
   const filtered = events.filter((e) => {
     const c = (e.place.city || "").toLowerCase().replace(/\s+/g, "-");

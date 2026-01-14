@@ -1,6 +1,6 @@
 // C:\EventPricing\src\lib\events\firestoreTypes.ts
 
-import type { NormalizedEvent, EventSourceRef } from "./eventTypes";
+import type { NormalizedEvent, EventSource } from "./eventTypes";
 
 /**
 Firestore collections (planned)
@@ -60,14 +60,14 @@ export type FirestoreEventDoc = {
   performers?: string[];
 
   // lineage
-  sources: EventSourceRef[];
+  sources: EventSource[];
 
   createdAtISO: string;
   updatedAtISO: string;
 };
 
 export type FirestoreEventSourceDoc = {
-  source: EventSourceRef["source"];
+  source: EventSource["source"];
   sourceId: string;
   url?: string;
 

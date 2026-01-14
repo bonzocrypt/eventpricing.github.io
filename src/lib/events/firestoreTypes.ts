@@ -119,7 +119,8 @@ popularity: "popularity" in e ? (e as any).popularity : undefined,
 
 
     images: e.images,
-    performers: e.performers,
+performers: "performers" in e ? (e as any).performers : undefined,
+
 
     sources: e.sources,
 

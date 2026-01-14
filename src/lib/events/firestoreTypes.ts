@@ -88,7 +88,7 @@ export function toFirestoreEventDoc(e: NormalizedEvent): FirestoreEventDoc {
     slug: e.slug,
 
     title: e.title,
-    description: e.description,
+description: "description" in e ? (e as any).description : undefined,
 
     startISO,
     endISO,

@@ -115,7 +115,8 @@ timeSlugs: "timeBuckets" in e ? (e as any).timeBuckets?.map((t: any) => t.slug) 
     ticketsUrl: e.ticketsUrl,
 
     status: e.status,
-    popularity: e.popularity,
+popularity: "popularity" in e ? (e as any).popularity : undefined,
+
 
     images: e.images,
     performers: e.performers,

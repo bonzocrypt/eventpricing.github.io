@@ -106,7 +106,8 @@ description: "description" in e ? (e as any).description : undefined,
     lng: e.place.lng,
 
     categorySlugs: e.categories.map((c) => c.slug),
-    timeSlugs: e.timeBuckets?.map((t) => t.slug),
+timeSlugs: "timeBuckets" in e ? (e as any).timeBuckets?.map((t: any) => t.slug) : undefined,
+
 
     priceCurrency: e.price?.currency,
     priceMin: e.price?.min,

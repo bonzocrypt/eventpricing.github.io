@@ -38,7 +38,7 @@ export async function ingestAllSources(ctx: IngestContext): Promise<IngestResult
       results.push(await ingest(ctx));
     } catch (e: any) {
       results.push({
-        source: "other",
+source: "ticketmaster" as EventSource,
         fetchedAtISO: nowISO(),
         events: [],
         errors: [e?.message ? String(e.message) : "Unknown ingest error"],

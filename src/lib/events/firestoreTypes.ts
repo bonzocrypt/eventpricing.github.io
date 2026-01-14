@@ -81,7 +81,11 @@ export type FirestoreEventSourceDoc = {
 
 export function toFirestoreEventDoc(e: NormalizedEvent): FirestoreEventDoc {
   const startISO = e.dateTime.startISO;
-  const endISO = "endISO" in e.dateTime ? e.dateTime.endISO : null;
+const endISO =
+  "endISO" in e.dateTime && typeof (e.dateTime as any).endISO === "string"
+    ? (e.dateTime as any).endISO
+    : null;
+
 
   return {
     id: e.id,

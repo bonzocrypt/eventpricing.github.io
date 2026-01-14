@@ -7,6 +7,8 @@ export type EventSource = {
   fetchedAtISO: string;
 };
 
+
+
 export type EventCategoryRef = {
   slug: string;
 };

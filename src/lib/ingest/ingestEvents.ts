@@ -1,14 +1,13 @@
-// C:\EventPricing\eventpricing\src\lib\ingest\ingestEvents.ts
-
 import type { NormalizedEvent, EventSource } from "../events/eventTypes";
 import { ingestTicketmaster } from "./sources/ticketmaster";
 
 export type IngestResult = {
-  source: EventSource;
+  source: EventSource["source"];
   fetchedAtISO: string;
   events: NormalizedEvent[];
   errors: string[];
 };
+
 
 export type IngestContext = {
   citySlug?: string;
@@ -36,14 +35,15 @@ export async function ingestAllSources(ctx: IngestContext): Promise<IngestResult
   for (const ingest of ingestors) {
     try {
       results.push(await ingest(ctx));
-    } catch (e: any) {
-      results.push({
-source: "ticketmaster" as EventSource,
-        fetchedAtISO: nowISO(),
-        events: [],
-        errors: [e?.message ? String(e.message) : "Unknown ingest error"],
-      });
-    }
+} catch (e: any) {
+  results.push({
+    source: "ticketmaster",
+    fetchedAtISO: nowISO(),
+    events: [],
+    errors: [e?.message ? String(e.message) : "Unknown ingest error"],
+  });
+}
+
   }
 
   return results;
